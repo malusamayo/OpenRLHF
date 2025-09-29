@@ -56,6 +56,7 @@ def batch_generate_vllm(args):
         dummy_strategy,
         args.seed,
         max_count=args.max_samples,
+        dataset_split=args.dataset_split,
     )
     if args.iter is None:
         prompts_data = prompts_data.select(range(min(args.max_samples, len(prompts_data))))
@@ -326,6 +327,7 @@ if __name__ == "__main__":
     parser.add_argument("--max_len", type=int, default=2048, help="Max tokens for the samples")
     parser.add_argument("--max_samples", type=int, default=1e8, help="Max number of samples")
     parser.add_argument("--output_path", type=str, default=None, help="Output JSON data path")
+    parser.add_argument("--dataset_split", type=str, default="train", help="dataset split")
 
     # For generation
     parser.add_argument("--prompt_max_len", type=int, default=1024, help="Max tokens for prompt")

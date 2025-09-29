@@ -149,3 +149,7 @@ core
 *jianh*
 *test_scripts*
 */checkpoint/*
+.ray_tmp
+wandb
+slurm-*.out
+results/*
